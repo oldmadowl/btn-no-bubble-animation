@@ -5,5 +5,5 @@ btn.addEventListener('click', () => {
 
   setTimeout(() => {
     btn.remove();
-  }, 8000);
+  }, 5000);
 })
