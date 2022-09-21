@@ -21,10 +21,11 @@
   height: 29px;
   padding: 0 10px;
   cursor: pointer;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: #fff;
 }
 
-.present-btn::before {
+/* .present-btn::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -34,7 +35,7 @@
   width: 100%;
   height: 100%;
   border-radius: 2px;
-}
+} */
 
 .present-btn__text,
 .present-btn__icon {
@@ -66,13 +67,13 @@
   animation-delay: 1s;
 }
 
-.present-btn--clicked::before {
+/* .present-btn--clicked::before {
   animation-name: bgAnimation;
   animation-duration: .2s;
   animation-timing-function: linear;
   animation-delay: 2.2s;
   animation-fill-mode: forwards;
-}
+} */
 
 .present-btn--clicked::after {
   content: "";
@@ -109,7 +110,7 @@
 .present-btn--clicked #present-path {
   stroke-dasharray: 171;
   animation-name: drawPresent;
-  animation-duration: 5s;
+  animation-duration: 2s;
   stroke: #000;
   animation-delay: 2.5s;
   animation-fill-mode: forwards;
@@ -126,37 +127,37 @@
   }
   17% {
     stroke: #fff;
-    stroke-dashoffset: 140;
+    stroke-dashoffset: 160;
     stroke-dasharray: 10;
     opacity: 1;
   }
   34% {
     stroke: #fff;
-    stroke-dashoffset: 110;
+    stroke-dashoffset: 150;
     stroke-dasharray: 10;
     opacity: 1;
   }
   51% {
     stroke: #fff;
-    stroke-dashoffset: 80;
+    stroke-dashoffset: 140;
     stroke-dasharray: 10;
     opacity: 1;
   }
   68% {
     stroke: #fff;
-    stroke-dashoffset: 50;
+    stroke-dashoffset: 130;
     stroke-dasharray: 10;
     opacity: 1;
   }
   85% {
     stroke: #fff;
-    stroke-dashoffset: 20;
+    stroke-dashoffset: 120;
     stroke-dasharray: 10;
     opacity: 1;
   }
   100% {
     stroke: #fff;
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 110;
     stroke-dasharray: 10;
     opacity: 0;
   }
@@ -167,25 +168,27 @@
     height: 100%;
   }
   20%{
-    height: 40px;
+    height: 100%;
   }
   35%{
-    height: 30px;
+    height: 100%;
   }
   50%{
-    height: 40px;
+    height: 100%;
+    opacity: 1;
   }
   60%{
-    height: 30px;
+    height: 100%;
+    opacity: .5;
   }
   80%{
     height: 150px;
     width: 150px;
-    opacity: 1;
+    opacity: .2;
   }
   100% {
-    height: 170px;
-    width: 170px;
+    height: 150px;
+    width: 150px;
     opacity: 0;
   }
 }
@@ -193,9 +196,11 @@
 @keyframes btnOverflow {
   0% {
     overflow: hidden;
+    background-color: #fff;
   }
   100% {
     overflow: visible;
+    background-color: transparent;
   }
 }
 
