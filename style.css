@@ -1,0 +1,315 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  background-color: maroon;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.present-btn {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: none;
+  border-radius: 2px;
+  height: 29px;
+  padding: 0 10px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.present-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.present-btn__text,
+.present-btn__icon {
+  position: relative;
+  z-index: 3;
+}
+
+.present-btn__text {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+  line-height: normal;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.present-btn__icon {
+  vertical-align: middle;
+}
+
+
+/* animation */
+
+.present-btn--clicked {
+  animation-name: btnOverflow;
+  animation-duration: .1s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+.present-btn--clicked::before {
+  animation-name: bgAnimation;
+  animation-duration: .2s;
+  animation-timing-function: linear;
+  animation-delay: 2.2s;
+  animation-fill-mode: forwards;
+}
+
+/* .present-btn--clicked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  animation-name: boomAnimation;
+  animation-timing-function: ease-in;
+  animation-duration: 1.5s;
+  animation-delay: 1.25s;
+  animation-fill-mode: forwards;
+} */
+
+.present-btn--clicked .present-btn__text {
+  animation-name: textAnimation;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(.29,-0.42,.52,1.29);
+  animation-fill-mode: forwards;
+}
+
+.present-btn--clicked .present-btn__icon {
+  animation-name: iconAnimation;
+  animation-duration: 2.1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+  animation-delay: .5s;
+}
+
+.present-btn--clicked #present-path {
+  stroke-dasharray: 171;
+  animation-name: drawPresent;
+  animation-duration: 5s;
+  stroke: #000;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  transition: all .3s;
+}
+
+@keyframes drawPresent {
+  0% {
+    stroke: #fff;
+    stroke-dashoffset: 170;
+    stroke-dasharray: 10;
+    opacity: 1;
+  }
+  17% {
+    stroke: #fff;
+    stroke-dashoffset: 140;
+    stroke-dasharray: 10;
+    opacity: 1;
+  }
+  34% {
+    stroke: #fff;
+    stroke-dashoffset: 110;
+    stroke-dasharray: 10;
+    opacity: 1;
+  }
+  51% {
+    stroke: #fff;
+    stroke-dashoffset: 80;
+    stroke-dasharray: 10;
+    opacity: 1;
+  }
+  68% {
+    stroke: #fff;
+    stroke-dashoffset: 50;
+    stroke-dasharray: 10;
+    opacity: 1;
+  }
+  85% {
+    stroke: #fff;
+    stroke-dashoffset: 20;
+    stroke-dasharray: 10;
+    opacity: 1;
+  }
+  100% {
+    stroke: #fff;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 10;
+    opacity: 0;
+  }
+} 
+
+/* @keyframes boomAnimation {
+  0% {
+    height: 100%;
+  }
+  20%{
+    height: 40px;
+  }
+  35%{
+    height: 30px;
+  }
+  50%{
+    height: 40px;
+  }
+  60%{
+    height: 30px;
+  }
+  80%{
+    height: 150px;
+    width: 150px;
+    opacity: 1;
+  }
+  100% {
+    height: 170px;
+    width: 170px;
+    opacity: 0;
+  }
+} */
+
+@keyframes btnOverflow {
+  0% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: visible;
+  }
+}
+
+@keyframes bgAnimation {
+  0% {
+    opacity: 1;
+  }  
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: .8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes textAnimation {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 200%;
+  }
+  100% {
+    top: 200%;
+    opacity: 0;
+  }
+}
+
+@keyframes iconAnimation {
+  0% {
+    right: 0;
+    transform: translateX(0) rotate(0);
+  }
+  5% {
+    right: 10%;
+    transform: translateX(0) rotate(10deg);
+  }
+  10% {
+    right: 20%;
+    transform: translateX(0) rotate(10deg);
+  }
+  15% {
+    right: 30%;
+    transform: translateX(20%) rotate(10deg);
+  }
+  20% {
+    right: 40%;
+    transform: translateX(20%) rotate(10deg);
+  }
+  25% {
+    right: 50%;
+    transform: translateX(20%) rotate(10deg);
+  }
+  30% {
+    right: 60%;
+    transform: translateX(20%) rotate(-10deg);
+  }
+  35% {
+    right: 50%;
+    transform: translateX(50%) rotate(10deg);
+  }
+  40% {
+    right: 50%;
+    transform: translateX(50%) rotate(0);
+  }
+  50% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(1.5);
+  }
+  60% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(1.2);
+  }
+  70% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(1.5);
+  }
+  80% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(1.3);
+    opacity: 1;
+  }
+  90% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(5);
+    opacity: 0;
+  }
+  92% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(5);
+    opacity: 0;
+  }
+  94% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(5);
+  }
+  96% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(5);
+  }
+  98% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(5);
+  }
+  99% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(5);
+  }
+  100% {
+    right: 50%;
+    transform: translateX(50%) rotate(0) scale(5);
+    opacity: 1;
+  }
+}
