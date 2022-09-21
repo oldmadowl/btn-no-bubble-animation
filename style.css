@@ -74,7 +74,7 @@
   animation-fill-mode: forwards;
 }
 
-/* .present-btn--clicked::after {
+.present-btn--clicked::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -83,13 +83,13 @@
   background-color: #fff;
   height: 100%;
   width: 100%;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   animation-name: boomAnimation;
   animation-timing-function: ease-in;
   animation-duration: 1.5s;
   animation-delay: 1.25s;
   animation-fill-mode: forwards;
-} */
+}
 
 .present-btn--clicked .present-btn__text {
   animation-name: textAnimation;
@@ -162,7 +162,7 @@
   }
 } 
 
-/* @keyframes boomAnimation {
+@keyframes boomAnimation {
   0% {
     height: 100%;
   }
@@ -188,7 +188,7 @@
     width: 170px;
     opacity: 0;
   }
-} */
+}
 
 @keyframes btnOverflow {
   0% {
